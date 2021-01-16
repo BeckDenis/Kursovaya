@@ -16,5 +16,5 @@ val networkModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { MoviesViewModel() }
+    viewModel { MoviesViewModel(get()) }
 }
