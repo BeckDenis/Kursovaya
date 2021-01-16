@@ -15,3 +15,6 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
 fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
     return OkHttpClient().newBuilder().addInterceptor(authInterceptor).build()
 }
+
+// Делает api запрос возвращающий список популярных фильмов
+fun providePopularMoviesApi(retrofit: Retrofit): MoviesApi.PopularMoviesApi = retrofit.create(MoviesApi.PopularMoviesApi::class.java)
