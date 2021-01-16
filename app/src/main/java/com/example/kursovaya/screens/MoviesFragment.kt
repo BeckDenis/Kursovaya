@@ -17,7 +17,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.movies.observe(viewLifecycleOwner, Observer {
-            Log.d("Main", it.toString())
+            popular_recycler_view.adapter = MovieAdapter(it.results)
         })
     }
 }
