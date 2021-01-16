@@ -1,5 +1,6 @@
 package com.example.kursovaya.networking
 
+import com.example.kursovaya.models.Movies
 import retrofit2.http.GET
 import retrofit2.http.Query
 
