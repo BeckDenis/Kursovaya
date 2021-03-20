@@ -7,5 +7,6 @@ data class Movies(val results: List<Movie>)
 data class Movie(
     val id: Int,
     val poster_path: String,
-    val title: String
+    val name: String,
+    val overview: String
 )

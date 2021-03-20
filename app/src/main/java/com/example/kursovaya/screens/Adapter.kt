@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_movie.view.*
 
 
 // Adapter будет показывать изображения с названием на экране
-class MovieAdapter(private val movieData: List<Movie>) :
+class MovieAdapter(private val movieData: List<Movie>, private val onClickListener: (Int) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
@@ -28,11 +28,12 @@ class MovieAdapter(private val movieData: List<Movie>) :
         val movie = movieData[position]
         holder.view.run {
             item_movie_poster.insertImageW500(movie.poster_path)
-            item_movie_name.text = movie.title
+            item_movie_name.text = movie.name
+            setOnClickListener { onClickListener(movie.id) }
         }
     }
+}
 
-    fun ImageView.insertImageW500(posterId: String?) {
-        Glide.with(context).load("https://image.tmdb.org/t/p/w500$posterId").into(this)
-    }
+fun ImageView.insertImageW500(posterId: String?) {
+    Glide.with(context).load("https://image.tmdb.org/t/p/w500$posterId").into(this)
 }
